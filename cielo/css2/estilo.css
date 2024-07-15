@@ -1,0 +1,106 @@
+* {
+	margin:0;
+	padding:0;
+}
+body {
+	background:url(../img/bg2.jpg) center;
+}
+/**/
+#header {
+	height:90px;
+	margin-bottom:0;
+}
+#header .banner img {
+	margin-top:40px;
+	margin-left:100px;
+}
+#header .banner {
+	width:960px;
+	height:90px;
+	margin:0 auto;
+}
+/*MAIN*/
+#main {
+	width:930px;
+	height:500px;
+	padding:15px;
+	border-radius:15px;
+	-webkit-border-radius:15px;
+	-moz-border-radius:15px;
+	margin:0 auto;
+}
+/**/
+#cadastro {
+	width:380px;
+
+	background:url(../img/vt.png);
+	position:absolute;
+	padding:10px;
+	left:700px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+}
+#cadastro .bg {
+	background:#EAEAEA;
+	padding:5px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+}
+#cadastro .top {
+	padding:10px;
+	text-align:center;
+	font:10px Tahoma, Geneva, sans-serif;
+	color:#C00;
+	border-radius:5px 5px 0 0;
+	-webkit-border-radius:5px 5px 0 0;
+	-moz-border-radius:5px 5px 0 0;
+	margin-bottom:10px;
+	position:absolute;
+	top:12px;
+	font-weight:bold;
+	text-shadow:0 1px 1px #FFF;
+	right:0px;
+	width:380px;
+}
+/*FORMULARIO*/
+#cadastro fieldset {
+	border:0;
+	padding:2px;
+	margin-top:2px;
+}
+#cadastro legend {
+	font:14px Verdana, Geneva, sans-serif;
+	color:#333;
+	text-shadow:0 1px 1px #FFF;
+}
+#cadastro select {
+	padding:4px 7px;
+	border:1px solid #CCC;
+	background:#FFF;
+	font:12px Tahoma, Geneva, sans-serif;
+}
+#cadastro input {
+	padding:4px 7px;
+	border:1px solid #CCC;
+	background:#FFF;
+	font:12px Tahoma, Geneva, sans-serif;
+}
+#cadastro button {
+	padding:5px 25px;
+	cursor:pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

